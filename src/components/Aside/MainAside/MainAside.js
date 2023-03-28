@@ -6,17 +6,20 @@ import { HiHome } from 'react-icons/hi';
 import { GrTest } from 'react-icons/gr';
 import { BsCardChecklist } from 'react-icons/bs';
 import { BiListCheck } from 'react-icons/bi';
+import { FaUsers } from 'react-icons/fa';
 import * as S from './style';
+import { useNavigate } from 'react-router-dom';
 
 const MainAside = () => {
+    const navigate = useNavigate();
+
     return (
         <aside css={S.style}>
             <Navigation
             // you can use your own router's api to get pathname
             activeItemId="/"
             onSelect={({itemId}) => {
-                console.log(itemId)
-              // maybe push to the route
+                navigate(itemId);
             }}
             items={[
               {
@@ -36,15 +39,37 @@ const MainAside = () => {
               },
               {
                 title: 'Sample',
-                itemId: '/sample',
+                itemId: '/sample/input/1',
                 elemBefore: () => <BsCardChecklist />,
                 subNav: [
                     {
-                        title: 'input1',
+                        title: 'sample',
                         itemId: '/sample/input/1',
                         elemBefore: () => <BiListCheck />
                     }
                 ]
+              },
+              {
+                title: 'List',
+                itemId: '/users',
+                elemBefore: () => <BsCardChecklist />,
+                subNav: [
+                    {
+                        title: '사용자 전체 조회',
+                        itemId: '/users',
+                        elemBefore: () => <FaUsers />
+                    }
+                ]
+              },
+              {
+                title: 'TODOLIST-JW',
+                itemId: '/todoList',
+                elemBefore: () => <BsCardChecklist />,
+              },
+              {
+                title: 'Todo',
+                itemId: '/todo',
+                elemBefore: () => <BsCardChecklist />,
               }
             ]}
           />

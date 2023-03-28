@@ -2,6 +2,9 @@ import { Global } from "@emotion/react";
 import { Route, Routes } from "react-router-dom";
 import MainAside from "./components/Aside/MainAside/MainAside";
 import InputSample from "./pages/InputSample/InputSample";
+import Todo from "./pages/Todo/Todo";
+import JwTodo from "./pages/TodoListJW/JwTodo";
+import UserList from "./pages/UserList/UserList";
 import { reset } from "./styles/Global/reset";
 
 function Test1() {
@@ -21,6 +24,9 @@ function App() {
         <Route path="/t1" Component={Test1} />
         <Route path="/t2" Component={Test2} />
         <Route path="/sample/input/1" Component={InputSample} />
+        <Route path="/users" Component={UserList} />
+        <Route path="/todoList" Component={JwTodo} />
+        <Route path="/todo" Component={Todo} />
       </Routes>
     </>
   );
